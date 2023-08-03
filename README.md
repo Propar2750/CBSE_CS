@@ -1,2 +1,2 @@
 # School
-Many small interesting school projects
+Many small interesting school projects.
