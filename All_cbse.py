@@ -231,12 +231,12 @@ def lcm():
 
         # n must be odd at this point
         # so a skip of 2 ( i = i + 2) can be used
-        for i in range(3, int(n ** 1 / 2) + 1, 2):
+        for a in range(3, int(n ** 1 / 2) + 1, 2):
 
             # while i divides n , print i and divide n
-            while n % i == 0:
-                factor_list.append(i)
-                n = n / i
+            while n % a == 0:
+                factor_list.append(a)
+                n = n / a
 
         # Condition if n is a prime
         # number greater than 2
@@ -261,13 +261,81 @@ def lcm():
         else:
             uncommon_factors.append(factors_2[i])
 
-    LCM = 1
+    x = 1
     for i in range(0, len(common_factors)):
-        LCM = LCM * common_factors[i]
+        x = x * common_factors[i]
     for i in range(0, len(uncommon_factors)):
-        LCM = LCM * uncommon_factors[i]
+        x = x * uncommon_factors[i]
 
-    print(LCM)
+    print(x)
 
 
-lcm()
+# Question 18 : Count and display the number of vowels
+def n_vowels():
+    n = 0
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    text = list(input("Please enter the text: "))
+    for i in range(0, len(text)):
+        if text[i].lower() in vowels:
+            n += 1
+    print(f'There are {n} vowels in this text')
+
+
+# Question 19 : Count and display the number of consonants
+def n_consonants():
+    n = 0
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    text = list(input("Please enter the text: "))
+    for i in range(0, len(text)):
+        if text[i].lower() not in vowels:
+            n += 1
+    print(f'There are {n} consonants in this text')
+
+
+# Question 19 : Count and display the number of Upper Case and lower case characters
+def n_upper_lower_case():
+    n_lower = 0
+    n_upper = 0
+    text = list(input("Please enter the text: "))
+
+    for i in range(0, len(text)):
+        if text[i].islower():
+            n_lower += 1
+        elif text[i].isupper():
+            n_upper += 1
+    print(f'There are {n_lower} lowercase characters \nThere are {n_upper} upper case characters')
+
+
+# Question 20 : Input a string and determine whether it is a palindrome or not
+def palindrome_str():
+    text = input("Please enter the text: ")
+    if text == text[::-1]:
+        print(f"{text} is a palindrome string")
+    else:
+        print(f"{text} is not a palindrome string")
+
+
+# Question 21 : convert the case of characters in a string.
+def case_conversion():
+    text = list(input("Please enter the text: "))
+    final_text = ""
+    for i in range(0,len(text)):
+        if text[i].isupper():
+            final_text = final_text + text[i].lower()
+        elif text[i].islower():
+            final_text = final_text + text[i].upper()
+    print(final_text)
+
+
+# Question 22 : Find the largest/smallest number in a list/tuple
+def largest_number_list():
+    print("To stop the entering process , send any character")
+    numbers = []
+    while True:
+        try:
+            numbers.append(int(input("Please enter the number: ")))
+        except ValueError:
+            break
+    numbers.sort()
+    print(f'{numbers[0]} is the smallest numbers \n{numbers[len(numbers)-1]} is the biggest number')
+
