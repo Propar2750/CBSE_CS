@@ -191,7 +191,6 @@ def prime_check():
 # Question 15 : Display the terms of a Fibonacci series.
 def fibonacci():
     n = int(input("How many terms of the fibonacci series? "))
-    sum = 0
     x = 1
     y = 0
     for i in range(0, n):
@@ -200,3 +199,75 @@ def fibonacci():
         x = y
         y = sum
 
+
+# Question 16 : Compute the Greatest Common Divisor
+def greatest_common_divisor():
+    number_1 = int(input("Please enter the number 1: "))
+    number_2 = int(input("Please enter the number 2: "))
+
+    def gcd(smaller_num):
+        for i in range((smaller_num // 2) + 1, 0, -1):
+            if number_1 % i == 0 and number_2 % i == 0:
+                print(f"{i} is the greatest common divisor")
+                break
+
+    if number_1 > number_2:
+        gcd(number_2)
+    else:
+        gcd(number_1)
+
+
+# Question 17 : Compute the least common multiple of two integers
+def lcm():
+    number_1 = int(input("Please enter the number 1: "))
+    number_2 = int(input("Please enter the number 2: "))
+
+    def factors(factor_list, n):
+
+        # Print the number of two's that divide n
+        while n % 2 == 0:
+            factor_list.append(2)
+            n = n / 2
+
+        # n must be odd at this point
+        # so a skip of 2 ( i = i + 2) can be used
+        for i in range(3, int(n ** 1 / 2) + 1, 2):
+
+            # while i divides n , print i and divide n
+            while n % i == 0:
+                factor_list.append(i)
+                n = n / i
+
+        # Condition if n is a prime
+        # number greater than 2
+        if n > 2:
+            factor_list.append(n)
+
+    factors_1 = []
+    factors_2 = []
+    factors(factors_1, number_1)
+    factors(factors_2, number_2)
+
+    common_factors = []
+    uncommon_factors = []
+    for i in range(0, len(factors_1)):
+        if factors_1[i] in factors_2:
+            common_factors.append(factors_1[i])
+        else:
+            uncommon_factors.append(factors_1[i])
+    for i in range(0, len(factors_2)):
+        if factors_2[i] in factors_1:
+            continue
+        else:
+            uncommon_factors.append(factors_2[i])
+
+    LCM = 1
+    for i in range(0, len(common_factors)):
+        LCM = LCM * common_factors[i]
+    for i in range(0, len(uncommon_factors)):
+        LCM = LCM * uncommon_factors[i]
+
+    print(LCM)
+
+
+lcm()
