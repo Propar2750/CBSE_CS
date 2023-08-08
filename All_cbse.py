@@ -355,3 +355,21 @@ def search_element():
         print(f"{search} is at position {y + 1}")
     except ValueError:
         print(f"{search} doesnt exist")
+
+
+# Question 24 : Create a dictionary with the roll number, name and marks of n students in a class and display
+# the names of students who have marks above 75.
+def marks_above_75():
+    data = {}
+    while True:
+        name = input("Please enter the name of the child or enter break to proceed further: ")
+        if name == "break":
+            break
+        else:
+            roll_number = input("Please enter the roll number: ")
+            marks = int(input("Please enter the marks: "))
+            data[name] = [roll_number,marks]
+            
+    for i in data.keys():
+        if data[i][1] >= 75:
+            print([i][0])
