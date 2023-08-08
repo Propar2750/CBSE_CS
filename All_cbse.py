@@ -339,3 +339,19 @@ def largest_number_list():
     numbers.sort()
     print(f'{numbers[0]} is the smallest numbers \n{numbers[len(numbers)-1]} is the biggest number')
 
+
+# Question 23 : Input a list/tuple of elements, search for a given element in the list/tuple.
+def search_element():
+    list_a = []
+    while True:
+        x = input("Enter the item you want to append (or write break to move on): ")
+        if x == "break":
+            break
+        else:
+            list_a.append(x)
+    search = input("What items location do you want to search")
+    try:
+        y = list_a.index(search)
+        print(f"{search} is at position {y + 1}")
+    except ValueError:
+        print(f"{search} doesnt exist")
