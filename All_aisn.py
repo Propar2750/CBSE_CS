@@ -94,3 +94,11 @@ def question_5():
         else:
             Product *= int(n[i])
     print(Sum+Product)
+
+
+# Question 6: Write a program which will find all such numbers which are divisible by 7 and are not multiple of 5, between
+def question_6():
+    for i in range(2000,3201):
+        if i%7==0 and i%5 != 0:
+            print(i,end=", ")
+
