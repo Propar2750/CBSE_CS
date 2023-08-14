@@ -104,3 +104,29 @@ def question_6():
 
 
 # Question 7: Develop a program to classify students amongst various categories as per their age entered. Read age if B students and count no if students falling in each category as described below print a report as follows-
+'''
+Group A :  12yrs and above but less than 15 yrs -XX
+Group B :  15yrs and above but less than 17 yrs -XX
+Group C :  17yrs and above but less than 19 yrs -XX
+Group D :  Lesser than 12 yrs
+'''
+def question_7():
+    N = int(input("Number of students? "))
+    below_12 = 0
+    above_12 = 0
+    above_15 = 0
+    above_17 = 0
+    for i in range(1,N+1):
+        age = float(input(f"Enter the age of student {i}: "))
+        if age <12:
+            below_12 +=1
+        elif 12<=age<15:
+            above_12+=1
+        elif 15<=age<17:
+            above_15+=1
+        elif 17 <= age < 19:
+            above_17 +=1
+        print(f"Group A :  12yrs and above but less than 15 yrs - {above_12}\n",
+              f"Group B :  15yrs and above but less than 17 yrs - {above_15}\n",
+              f"Group C :  17yrs and above but less than 19 yrs - {above_17}\n",
+              f"Group D : Lesser than 12 yrs - {below_12}")
