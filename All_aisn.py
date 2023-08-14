@@ -59,8 +59,26 @@ def speeding_ticket():
 """
 
 
-# Question 4: Generating Pattern 1
+# Question 4(i): Generating Pattern 1
 def pattern_1():
     number_of_lines = 1 + int(input("How many lines of this pattern do you want? "))
     for i in range(1, number_of_lines):
         print("*" * i)
+
+
+'''
+Pattern 2:
+    *
+   **
+  ***
+ ****
+*****
+'''
+
+
+# Question 4(ii): Generating pattern 2
+def pattern_2():
+    number_of_lines =1 +int(input("How many lines of this pattern do you want? "))
+    for i in range(number_of_lines-1, 0,-1):
+        print(" " * i, "*"*(number_of_lines-i))
+        
