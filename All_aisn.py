@@ -102,3 +102,5 @@ def question_6():
         if i%7==0 and i%5 != 0:
             print(i,end=", ")
 
+
+# Question 7: Develop a program to classify students amongst various categories as per their age entered. Read age if B students and count no if students falling in each category as described below print a report as follows-
