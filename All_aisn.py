@@ -48,3 +48,19 @@ def speeding_ticket():
         print("Small ticket")
     elif ticket == 2:
         print("Big ticket")
+
+
+""" Pattern 1:
+    *
+    **
+    ***
+    ****
+    *****
+"""
+
+
+# Question 4: Generating Pattern 1
+def pattern_1():
+    number_of_lines = 1 + int(input("How many lines of this pattern do you want? "))
+    for i in range(1, number_of_lines):
+        print("*" * i)
