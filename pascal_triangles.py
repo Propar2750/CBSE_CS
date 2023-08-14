@@ -17,8 +17,7 @@ for i in range(1,n+1):
 total_len = (2*n) - 1
 
 for x in storage.values():
-    spaces = int(total_len - (len(x)*2)-1)/2
-    spaces = int(spaces) # Was otherwise giving errors sometimes
+    spaces = int((total_len - (len(x)*2)-1)/2)
     for i in range(len(x)):
         if i == 0:
             print(" "*spaces,x[i],end = "")
