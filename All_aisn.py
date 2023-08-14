@@ -20,3 +20,31 @@ def basic_calculator():
     else: 
         print("Enter a valid operator next time")
     print(f'{n_1} {operator} {n_2} = {result}')
+
+
+# Question 3 : You are driving a little too fast and the police officer stops you and issues a ticker. Write code to compute the result encoded as an integer value: 0 = no ticket, 1 = small ticket and 2= big ticket.
+# If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless its your birthday, on that day, your speed can be 5 higher in all cases. WAP to model the above scenario
+def speeding_ticket():
+    speed = int(input("Please enter the speed: "))
+    bday = input("Was it his/her bday today(y/n): ")
+    ticket = 0 
+    if bday.startswith("y"):
+        speed = speed - 5
+    elif bday.startswith("n"):
+        pass
+    else:
+        print("Please enter yes or no for whether it was the drivers birthday or not")
+    
+    if speed < 60:
+        pass
+    elif 80 <= speed >= 60:
+        ticket = 1
+    elif speed >= 81:
+        ticket = 2
+    
+    if ticket == 0:
+        print("no ticket")
+    elif ticket == 1:
+        print("Small ticket")
+    elif ticket == 2:
+        print("Big ticket")
