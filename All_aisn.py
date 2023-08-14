@@ -82,3 +82,15 @@ def pattern_2():
     for i in range(number_of_lines-1, 0,-1):
         print(" " * i, "*"*(number_of_lines-i))
         
+
+# Question 5: WAP that reads n digit number, After reading the number, compute and display the sum of the odd oppositioned digits, multiply all even positioned digits and add these two number
+def question_5():
+    n = list(input("Enter number: "))
+    Sum = 0
+    Product = 1
+    for i in range(len(n)):
+        if i % 2 == 0:
+            Sum += int(n[i])
+        else:
+            Product *= int(n[i])
+    print(Sum+Product)
