@@ -139,3 +139,14 @@ def palindrome_number():
         print(f"{number} is a palindrome number")
     else:
         print(f"{number} is not a palindrome number")
+
+
+#Question 9 : According to a study, the approzimate level of intelligence of a person can be caluclated using the following formula i =2(y+05.x). Write a program, which produces a table of values of i, y and x . Where y varies from 1 to 6 and for each value of y, x varies from 5.5 to 12.5 in steps of 0.5
+def question_9():
+    output = {}
+    for y in range(1,7):
+        for x in range(55, 130,5):
+            l=x/10
+            i = 2*(y+(0.5*l))
+            output[i]=[l,y]
+    print(output)
