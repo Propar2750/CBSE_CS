@@ -150,3 +150,22 @@ def question_9():
             i = 2*(y+(0.5*l))
             output[i]=[l,y]
     print(output)
+
+
+# Question 10(A) : WAP to print the result of the sequence x + x^2/2 + x^3/3 ... x^n/n
+def question_10A():
+    x = int(input("Enter value of x: "))
+    n = int(input("Enter value of n: "))
+    sum = 0
+    for i in range(1,n+1):
+        sum+= (x**n)/n
+    print(sum)
+
+
+# Question 10(B) : WAP to print the result of the sequence 1/sqrt(2) + 2/sqrt(3) ... n/(sqrt(n+1))
+def question_10B():
+    n = int(input("Enter value of n: "))
+    sum = 0
+    for i in range(1,n+1):
+        sum+= n/(n**1/2)
+    print(sum)
