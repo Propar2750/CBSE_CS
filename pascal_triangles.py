@@ -11,3 +11,17 @@ for i in range(1,n+1):
         else:
             x = storage[i-1][j-2]+storage[i-1][j-1]
             storage[i].append(x)
+
+
+# formatting the answer
+total_len = (2*n) - 1
+
+for x in storage.values():
+    spaces = int(total_len - (len(x)*2)-1)/2
+    
+    for i in range(len(x)):
+        if i == 0:
+            print(" "*spaces,x[i],end = "")
+        else:
+            print(" ", x[i], end ="" )
+    print()
