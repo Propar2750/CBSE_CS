@@ -130,3 +130,12 @@ def question_7():
               f"Group B :  15yrs and above but less than 17 yrs - {above_15}\n",
               f"Group C :  17yrs and above but less than 19 yrs - {above_17}\n",
               f"Group D : Lesser than 12 yrs - {below_12}")
+
+
+# Question 8 : WAP to find if a number entered is a palindrome or not
+def palindrome_number():
+    number = input("Please enter the number: ")
+    if number == number[::-1]:
+        print(f"{number} is a palindrome number")
+    else:
+        print(f"{number} is not a palindrome number")
