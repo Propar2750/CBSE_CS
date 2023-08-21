@@ -19,9 +19,8 @@ def question_2():
     
     
     def i():
-        string = input("Enter the string: ")
+        string = list(input("Enter the string: "))
         output = {}
-        string = list(string)
         for i in range(len(string)):
             try: 
                 output[string[i]] = output[string[i]] + 1
