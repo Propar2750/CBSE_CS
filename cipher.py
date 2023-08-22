@@ -4,6 +4,96 @@ Input are taken in 1, 2 , 3... so that the choice can be executed easily and aff
 """
 
 
+# The encryption logic
+def encrypt(chars: list, rotate: int):
+    # Looping for all characters in the string
+    for i in range(len(chars)):
+
+        chars[i] = str(chars[i])
+        # Checks if the character is lower or upper case so that the output letter is in the same case using the
+        # ordinal of the uppercase letter or the lowercase letter
+        if chars[i].isupper():
+            z = "Z"
+            dif = 26
+            rotate = rotate - 26*(rotate // 26)
+
+        elif chars[i].islower():
+            z = 'z'
+            dif = 26
+            rotate = rotate - 26*(rotate // 26)
+
+        # For all the characters
+        elif ord('a') > ord(chars[i]) > ord('Z'):
+            z = chr(ord('a') - 1)
+            dif = (ord('a') -ord('Z'))
+
+        elif ord('z') < ord(chars[i]):
+            z = chr(127)
+            dif = 127 - ord('z')
+
+        elif ord(chars[i]) < ord('A'):
+            z = chr(ord('A') - 1)
+            dif = ord('A')
+
+        rotate = rotate - dif*(rotate // dif)
+
+        # If the ordinal of the character is less than the amount it needs to be rotated by
+        # That is, the amount it has to be rotated by can just be added
+        if ord(chars[i]) <= ord(z) - rotate:
+            print(chr(ord(chars[i]) + rotate), end="")
+
+        # If the ordinal of the character is more than the amount it needs to be rotated by
+        # That is, the amount it has to be rotated by can't just be added and hence 26 is also subtracted
+        elif ord(chars[i]) > ord(z) - rotate:
+            print(chr(ord(chars[i]) + rotate - dif), end="")
+
+    # An empty line is printed so that the next prompt isn't in the same line
+    print("\n")
+
+
+# The decryption logic
+def decrypt(chars: list, rotate: int):
+    # Looping for all characters in the string
+    for i in range(len(chars)):
+
+        # Checks if the character is lower or upper case so that the output letter is in the same case using the
+        # ordinal of the uppercase letter or the lowercase letter
+        if chars[i].isupper():
+            a = "A"
+            dif = 26
+
+        elif chars[i].islower():
+            a = 'a'
+            dif = 26
+
+        elif ord('a') > ord(chars[i]) > ord('Z'):
+            a = chr(ord('Z') + 1)
+            dif = ord('a') -ord('Z')
+
+        elif ord('z') < ord(chars[i]):
+            a = chr(ord('z') + 1)
+            dif = 127 - ord('z')
+
+        elif ord(chars[i]) < ord('A'):
+            a = chr(0)
+            dif = ord('A')
+
+        rotate = rotate - dif*(rotate // dif)
+
+        # If the ordinal of the character is greater than the amount it needs to be rotated by
+        # That is, the amount it has to be rotated by can just be subtracted
+        if ord(chars[i]) >= ord(a) + rotate:
+            print(chr(ord(chars[i]) - rotate), end="")
+
+        # If the ordinal of the character is less than the amount it needs to be rotated by
+        # That is, the amount it has to be rotated by can't just be subtracted and hence 26 is also added
+        elif ord(chars[i]) < ord(a) + rotate:
+            print(chr(ord(chars[i]) - rotate + 26), end="")
+
+    # An empty line is printed so that the next prompt isn't in the same line
+    print("\n")
+
+
 def logic():
     # There is a loop till the user enters a 1 or 2 or nothing for the first choice.
     while True:
@@ -32,7 +122,6 @@ def logic():
         # The code doesnt give an error even when an number is not entered. It instead asks to re enter
         try:
             rot = int(input("Enter the ROT(Rotate by places): ") or 13)
-            rot = rot - 26 * (rot // 26)
 
             # It breaks if value is received without any error
             break
@@ -44,63 +133,11 @@ def logic():
     # The string which will be encrypted or decrypted
     string = list(input("Please enter the string: "))
 
-    # The encryption logic
-    def encrypt():
-
-        # Looping for all characters in the string
-        for i in range(len(string)):
-
-            # Checks if the character is lower or upper case so that the output letter is in the same case using the
-            # ordinal of the uppercase letter or the lowercase letter
-            if string[i].isupper():
-                z = "Z"
-            elif string[i].islower():
-                z = 'z'
-
-            # If the ordinal of the character is less than the amount it needs to be rotated by
-            # That is, the amount it has to be rotated by can just be added
-            if ord(string[i]) <= ord(z) - rot:
-                print(chr(ord(string[i]) + rot), end="")
-
-            # If the ordinal of the character is more than the amount it needs to be rotated by
-            # That is, the amount it has to be rotated by can't just be added and hence 26 is also subtracted
-            elif ord(string[i]) > ord(z) - rot:
-                print(chr(ord(string[i]) + rot - 26), end="")
-
-        # An empty line is printed so that the next prompt isn't in the same line
-        print("\n")
-
-    # The decryption logic
-    def decrypt():
-
-        # Looping for all characters in the string
-        for i in range(len(string)):
-
-            # Checks if the character is lower or upper case so that the output letter is in the same case using the
-            # ordinal of the uppercase letter or the lowercase letter
-            if string[i].isupper():
-                a = "A"
-            elif string[i].islower():
-                a = 'a'
-
-            # If the ordinal of the character is greater than the amount it needs to be rotated by
-            # That is, the amount it has to be rotated by can just be subtracted
-            if ord(string[i]) >= ord(a) + rot:
-                print(chr(ord(string[i]) - rot), end="")
-
-            # If the ordinal of the character is less than the amount it needs to be rotated by
-            # That is, the amount it has to be rotated by can't just be subtracted and hence 26 is also added
-            elif ord(string[i]) < ord(a) + rot:
-                print(chr(ord(string[i]) - rot + 26), end="")
-
-        # An empty line is printed so that the next prompt isn't in the same line
-        print("\n")
-
     # Executes the encryption / decryption
     if encrypt_decrypt == 1:
-        encrypt()
+        encrypt(string,rot)
     elif encrypt_decrypt == 2:
-        decrypt()
+        decrypt(string,rot)
 
 
 # Executes the code in a loop asking for whether to continue or not after each loop
@@ -113,3 +150,6 @@ def cipher():
                 break
         except TypeError:
             print("Enter an number")
+
+
+cipher()
