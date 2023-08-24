@@ -356,6 +356,36 @@ def question_10B():
 OUTPUT:
 
 Enter value of n: 9
+
 19.30600052603572
 
 '''
+
+
+# Practical Exam Questions
+# Q 1 
+def question_1():
+    number_of_days_late = int(input("Enter how late was the book returned"))
+    fine = 0 
+    if number_of_days_late <= 5:
+        fine = 2*number_of_days_late
+    elif number_of_days_late < 11:
+        fine = 10 + 3*(number_of_days_late-5)
+    elif number_of_days_late < 16:
+        fine = 25 + 4*(number_of_days_late-10)
+    else:
+        fine = 45 + 5*(number_of_days_late-15)
+    print(f"The fine is {fine}")
+
+# Question 2 
+def question_2():
+    n = int(input("Enter the number of terms: "))
+    x = int(input("Enter the value of x: "))
+    sum = 0 
+    for i in range(1,n+1):
+        s = 1
+        for j in range(1,i+1):
+            s =  s + (x ** j)
+        sum +=s
+
+    print(sum) 
