@@ -52,3 +52,14 @@ def question_2():
                 print(string[i][0], end = " ")
             else:
                 print(string[i])
+
+
+# Question : Print all the indexes of occurences of a substring in a string
+string = (input("Enter the string: "))
+sub_string = input("Enter the substring: ")
+x=string.split(sub_string)
+y = 0
+for i in range(1,len(x)):
+    
+    y = len(sub_string) + len(x[i-1])+y
+    print(y)
